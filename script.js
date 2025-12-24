@@ -15,12 +15,11 @@ function renderContent(data) {
   document.querySelector('.badge').textContent = data.badge;
   document.querySelector('h1').textContent = data.title;
   document.querySelector('.subtitle').textContent = data.subtitle;
-  
+  document.querySelector('.subtitle2').textContent = data.subtitle2;  
   const meta = document.querySelector('.meta');
   meta.innerHTML = `
-    <span><span class="dot"></span> ${data.date} · ${data.time}</span>
+    <span><span class="dot"></span> ${data.time}</span>
     <span>${data.venue}</span>
-    <span>Возраст ${data.age}</span>
   `;
   
   document.querySelector('.list-title').textContent = data.listTitle;
@@ -47,9 +46,7 @@ function renderContent(data) {
       li.innerHTML = `
         <div class="title">${performance.title}</div>
         <div class="info">
-          <span class="time">${performance.time}</span>
           <span class="tag">${performance.tag}</span>
-          <span>${performance.performer}</span>
         </div>
       `;
       performancesList.appendChild(li);
@@ -60,8 +57,6 @@ function renderContent(data) {
     categoriesContainer.appendChild(categoryDiv);
   });
   
-  document.querySelector('.footer span').textContent = data.footerText;
-  document.querySelector('.btn').textContent = data.buttonText;
 }
 
 document.addEventListener('DOMContentLoaded', loadData);
