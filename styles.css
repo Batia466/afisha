@@ -54,6 +54,7 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   white-space: pre-line;
   font-family: 'Georgia', serif;
+  text-align: center;
 }
 
 .subtitle, .subtitle2 {
@@ -208,6 +209,12 @@ h1 {
 @media screen and (max-width: 1023px) {
   .performances {
     grid-template-columns: 1fr !important;
+  }
+  
+  .category-title {
+    font-size: 18px;
+    padding: 14px 20px;
+    letter-spacing: 1px;
   }
 }
 
