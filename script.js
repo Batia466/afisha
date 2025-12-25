@@ -15,7 +15,21 @@ function renderContent(data) {
   document.querySelector('.badge').textContent = data.badge;
   document.querySelector('h1').textContent = data.title;
   document.querySelector('.subtitle').textContent = data.subtitle;
-  document.querySelector('.subtitle2').textContent = data.subtitle2;  
+  document.querySelector('.subtitle2').textContent = data.subtitle2;
+  
+  const addressElement = document.querySelector('.address');
+  if (addressElement) {
+    if (data.address && data.address.trim()) {
+      addressElement.innerHTML = `<a href="https://yandex.ru/maps/213/moscow/house/bolshoy_spasoglinishchevskiy_pereulok_3s5/Z04YcARlSEwAQFtvfXt0d3hgYw==/?ll=37.635197%2C55.756437&z=16" target="_blank" rel="noopener noreferrer">${data.address} <span class="external-link-icon">↗</span></a>`;
+      addressElement.style.display = 'block';
+    } else {
+      console.log('Address not found in data:', data);
+      addressElement.style.display = 'none';
+    }
+  } else {
+    console.log('Address element not found in DOM');
+  }
+  
   const meta = document.querySelector('.meta');
   meta.innerHTML = `
     <span><span class="dot"></span> ${data.time}</span>
