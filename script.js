@@ -47,7 +47,7 @@ function renderContent(data) {
     "Животные": "animals.png",
     "Предметы": "things.png",
     "Предлагаемые обстоятельства": "obst.png",
-    "Эстрада": "estra.png"
+    "Эстрада": "estr.png"
   };
   
   data.categories.forEach(category => {
