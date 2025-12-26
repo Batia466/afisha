@@ -23,7 +23,6 @@ function renderContent(data) {
       addressElement.innerHTML = `<a href="https://yandex.ru/maps/213/moscow/house/bolshoy_spasoglinishchevskiy_pereulok_3s5/Z04YcARlSEwAQFtvfXt0d3hgYw==/?ll=37.635197%2C55.756437&z=16" target="_blank" rel="noopener noreferrer">${data.address} <span class="external-link-icon">↗</span></a>`;
       addressElement.style.display = 'block';
     } else {
-      console.log('Address not found in data:', data);
       addressElement.style.display = 'none';
     }
   } else {
@@ -42,13 +41,29 @@ function renderContent(data) {
   const categoriesContainer = document.querySelector('.categories-container');
   categoriesContainer.innerHTML = '';
   
+  // Маппинг названий разделов на изображения
+  const categoryImages = {
+    "Интерлюдия": "inter.png",
+    "Животные": "animals.png",
+    "Предметы": "things.png",
+    "Предлагаемые обстоятельства": "obst.png",
+    "Эстрада": "estra.png"
+  };
+  
   data.categories.forEach(category => {
     const categoryDiv = document.createElement('div');
     categoryDiv.className = 'category';
     
-    const categoryTitle = document.createElement('h3');
-    categoryTitle.className = 'category-title';
-    categoryTitle.textContent = category.name;
+   const imageName = categoryImages[category.name];
+    if (imageName) {
+      const img = document.createElement('img');
+      img.src = imageName;
+      img.alt = category.name;
+      img.className = 'category-image';
+      categoryDiv.appendChild(img);
+    } else {
+      categoryDiv.textContent = category.name;
+    }
     
     const performancesList = document.createElement('ul');
     performancesList.className = 'performances';
@@ -59,14 +74,11 @@ function renderContent(data) {
       li.setAttribute('data-num', performance.num);
       li.innerHTML = `
         <div class="title">${performance.title}</div>
-        <div class="info">
-          <span class="tag">${performance.tag}</span>
-        </div>
       `;
       performancesList.appendChild(li);
     });
     
-    categoryDiv.appendChild(categoryTitle);
+   // categoryDiv.appendChild(categoryTitle);
     categoryDiv.appendChild(performancesList);
     categoriesContainer.appendChild(categoryDiv);
   });

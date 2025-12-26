@@ -125,6 +125,22 @@ h1 {
   font-weight: 600;
 }
 
+.afisha-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.afisha-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .dot {
   width: 8px;
   height: 8px;
@@ -196,6 +212,17 @@ h1 {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 215, 0, 0.3);
   border-radius: 0;
   font-family: 'Georgia', serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  max-height: 180px;
 }
 
 .performances {
@@ -216,6 +243,8 @@ h1 {
     padding: 14px 20px;
     letter-spacing: 1px;
   }
+  
+ 
 }
 
 /* Две колонки только на больших экранах */
@@ -274,6 +303,7 @@ h1 {
   margin-bottom: 6px;
   color: #1a1a1a;
   font-family: 'Georgia', serif;
+  margin-left: 12px;
 }
 
 .info {
