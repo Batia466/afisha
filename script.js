@@ -38,6 +38,11 @@ function renderContent(data) {
   document.querySelector('.list-title').textContent = data.listTitle;
   document.querySelector('.numbers').textContent = data.numbers;
   
+  const disclaimerElement = document.querySelector('.disclaimer');
+  if (disclaimerElement && data.disclaimer) {
+    disclaimerElement.textContent = data.disclaimer;
+  }
+  
   const categoriesContainer = document.querySelector('.categories-container');
   categoriesContainer.innerHTML = '';
   
